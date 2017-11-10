@@ -27,7 +27,7 @@
     label: Pod Infra Container Image
     description: The image whose network/ipc namespaces containers in each pod will use. If your images are being pulled from a private registry, you need to add this image to your private registry and put the private registry into this field.
     required: true
-    default: "gcr.io/google_containers/pause-amd64:3.0"
+    default: "registry.cn-hangzhou.aliyuncs.com/google_containers/pause-amd64:3.0"
     type: string
   - variable: REGISTRY_ADDONS
     description: The registry to pull addon images from. This should be set to the private registry from which the images for helm, heapster, dashboard and dns (and other addon-services) should be pulled.
