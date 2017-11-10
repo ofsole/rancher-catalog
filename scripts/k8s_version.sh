@@ -31,19 +31,19 @@ for f in $FILES; do
            cd kubernetes-package
            git checkout $VERSION > /dev/null 2>&1 
            if [ -d addon-templates/dashboard ]; then
-                DASHBOARD_VERSION=$(grep "image:" addon-templates/dashboard/dashboard-controller.* | sed 's/\$GCR_IO_REGISTRY/gcr.io/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
+                DASHBOARD_VERSION=$(grep "image:" addon-templates/dashboard/dashboard-controller.* | sed 's/\$registry.cn-hangzhou.aliyuncs.com_REGISTRY/registry.cn-hangzhou.aliyuncs.com/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
                 printf "%-60s %-60s\n" "Kubernetes Addon: Kubernetes Dashboard version:" "$DASHBOARD_VERSION"
            fi
            if [ -d addon-templates/heapster ]; then
-                HEAPSTER_VERSION=$(grep "image:" addon-templates/heapster/heapster-controller.* | sed 's/\$GCR_IO_REGISTRY/gcr.io/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
+                HEAPSTER_VERSION=$(grep "image:" addon-templates/heapster/heapster-controller.* | sed 's/\$registry.cn-hangzhou.aliyuncs.com_REGISTRY/registry.cn-hangzhou.aliyuncs.com/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
                 printf "%-60s %-60s\n" "Kubernetes Addon: Heapster version:" "$HEAPSTER_VERSION"
-                HEAPSTER_INFLUXDB_VERSION=$(grep "image:" addon-templates/heapster/influx-grafana-controller.* | grep influxdb | sed 's/\$GCR_IO_REGISTRY/gcr.io/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
+                HEAPSTER_INFLUXDB_VERSION=$(grep "image:" addon-templates/heapster/influx-grafana-controller.* | grep influxdb | sed 's/\$registry.cn-hangzhou.aliyuncs.com_REGISTRY/registry.cn-hangzhou.aliyuncs.com/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
                 printf "%-60s %-60s\n" "Kuberentes Addon: Heapster InfluxDB version:" "$HEAPSTER_INFLUXDB_VERSION"
-                HEAPSTER_GRAFANA_VERSION=$(grep "image:" addon-templates/heapster/influx-grafana-controller.* | grep grafana | sed 's/\$GCR_IO_REGISTRY/gcr.io/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
+                HEAPSTER_GRAFANA_VERSION=$(grep "image:" addon-templates/heapster/influx-grafana-controller.* | grep grafana | sed 's/\$registry.cn-hangzhou.aliyuncs.com_REGISTRY/registry.cn-hangzhou.aliyuncs.com/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
                 printf "%-60s %-60s\n" "Kubernetes Addon: Heapster Grafana version:" "$HEAPSTER_GRAFANA_VERSION"
            fi
            if [ -d addon-templates/helm ];then
-                TILLER_VERSION=$(grep "image:" addon-templates/helm/tiller-deploy.* | sed 's/\$GCR_IO_REGISTRY/gcr.io/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
+                TILLER_VERSION=$(grep "image:" addon-templates/helm/tiller-deploy.* | sed 's/\$registry.cn-hangzhou.aliyuncs.com_REGISTRY/registry.cn-hangzhou.aliyuncs.com/g' | sed 's/$DOCKER_IO_REGISTRY/docker.io/g' | awk '{print $2}')
                 printf "%-60s %-60s\n" "Kubernetes Addon: Tiller version:" "$TILLER_VERSION"
            fi
 
